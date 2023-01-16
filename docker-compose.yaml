@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  producer:
+    build: .
+    command: python websitechecker/main.py producer
+    environment:
+      KAFKA_ADDRESS: ${KAFKA_ADDRESS}
+      PG_ADDRESS: ${PG_ADDRESS}
+    volumes:
+      - ./certs:/app/certs
+
+  consumer:
+    build: .
+    command: python websitechecker/main.py consumer
+    environment:
+      KAFKA_ADDRESS: ${KAFKA_ADDRESS}
+      PG_ADDRESS: ${PG_ADDRESS}
+    volumes:
+      - ./certs:/app/certs

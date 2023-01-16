@@ -1,0 +1,8 @@
+*.pem
+*.key
+*.cert
+
+.gitignore
+.vscode
+.pytest_cache
+.mypy_cache
